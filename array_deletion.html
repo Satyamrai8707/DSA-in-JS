@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Deletion</title>
+    <script>
+        let arr = [3, 5, 9, 83];
+        let position = 4; // Position to delete the element
+        console.log(`Current value: ${arr}`);
+
+        for(let i = position; i < arr.length - 1; i++) {
+            arr[i] = arr[i + 1]; // Shift elements to the left
+        }
+        arr.length = arr.length - 1; // Reduce the array size by 1
+        console.log(`Array after deletion: ${arr}`);
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

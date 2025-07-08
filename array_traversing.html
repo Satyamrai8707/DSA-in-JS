@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Array traversing</title>
+    <script>
+      let arr = [3, 5, 9, 0, 48, 38, 23, 21];
+      let find = 7; // Element to find
+      for (let i = 0; i < arr.length; i++) {
+        document.write(` Array ${i} is ${arr[i]}<br>`);
+      }
+      document.write(`Index ${find} is found on element ${arr[find]}<br>`);
+      function getElement() {
+        let output = document.getElementById("element").value
+        let checkNum = typeof parseInt(output) == "number"
+
+        if ( output < arr.length && checkNum && output > 0) {
+          alert(arr[output]);
+        } 
+        else {
+            alert("Please enter a valid number");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <input type="text" id="element" />
+    <button onclick="getElement()" type="button">Get element</button>
+  </body>
+</html>
