@@ -94,9 +94,57 @@
 
 
 // using from
-let i = 0
-let j = 0
-let identitymtrix = Array.from({length:4},(_,i)=>
-    Array.from({length:4},(_,j)=>(i === j ? 1:0))
-)
-console.log(identitymtrix)
+// let i = 0
+// let j = 0
+// let identitymtrix = Array.from({length:4},(_,i)=>
+//     Array.from({length:4},(_,j)=>(i === j ? 1:0))
+// )
+// console.log(identitymtrix)
+
+// Spirally traversing a matrix
+// important Q...
+let matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+    [13, 14, 15, 16]
+];
+
+function spiralTraverse(matrix){
+    let result = [];
+    let rows = matrix.length;
+    let cols = matrix[0].length;
+    let top = 0, bottom = rows - 1, left = 0, right = cols - 1;
+
+    while (top <= bottom && left <= right) {
+        // Traverse from left to right
+        for (let i = left; i <= right; i++) {
+            result.push(matrix[top][i]);
+        }
+        top++;
+
+        // Traverse from top to bottom
+        for (let i = top; i <= bottom; i++) {
+            result.push(matrix[i][right]);
+        }
+        right--;
+
+        if (top <= bottom) {
+            // Traverse from right to left
+            for (let i = right; i >= left; i--) {
+                result.push(matrix[bottom][i]);
+            }
+            bottom--;
+        }
+        if (left <= right) {
+            // Traverse from bottom to top
+            for (let i = bottom; i >= top; i--) {
+                result.push(matrix[i][left]);
+            }
+            left++;
+        }
+    }
+    return result;
+}
+
+console.log(spiralTraverse(matrix));
