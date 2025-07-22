@@ -489,7 +489,7 @@ let result = [
 //    *
 
 
-let n = 4
+let n = 10
 for(let i = 1;i <= n;i++){
     let str = ' '.repeat(n-i)
 
