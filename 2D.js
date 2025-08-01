@@ -228,5 +228,3 @@ for (let i = 0; i < matrix1.length; i++) {
     console.log(matrix1[i][j]);
   }
 }
-
-
