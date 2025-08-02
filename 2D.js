@@ -228,3 +228,22 @@ for (let i = 0; i < matrix1.length; i++) {
     console.log(matrix1[i][j]);
   }
 }
+
+
+const matrix2 = [
+  [1,2,3],
+  [4,5,6],
+  [7,8,9]
+]
+let result = []
+let maxsum = 0
+for(let i = 0;i< matrix2.length;i++){
+  let sum = 0
+  for(let j = 0;j < matrix2[0].length;j++){
+    sum += matrix2[j][i]
+  }
+  if(sum > maxsum){
+    maxsum = sum
+  }
+}
+console.log(maxsum)

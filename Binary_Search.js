@@ -60,3 +60,28 @@ function lastOccurence(arr, target) {
   }
   
   console.log(lastOccurence(arr, target));
+
+
+  let arr1 = [1,2,3,4,5]
+  let target1 = 3
+  let result = -1
+
+  function GreaterThanTarget(arr1, target1) {
+    let left = 0;
+    let right = arr1.length - 1;
+    while (left <= right) {
+      let mid = Math.floor(left + (right - left) / 2);
+      if(arr[mid] > target1){
+        result = arr1[mid]
+        right = mid-1
+      }
+      else{
+        left = mid+1
+
+      }
+  
+    }
+    return result;
+  }
+  
+  console.log(GreaterThanTarget(arr1, target1));
