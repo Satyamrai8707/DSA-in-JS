@@ -18,8 +18,29 @@
 //   }
 //   console.log();
 // }
-let arr = [1, 2, 3, 2, 1, 4, 5, 4];
-let result = new Set(arr);
-console.log([...result])
 
 
+
+// * * * * *
+// * *   * *
+// *   *   *
+// * *   * *
+// * * * * *
+
+function print(n){
+    for(let i = 0;i < n;i++){
+        let star = ''
+        for(let j = 0;j< n;j++){
+            if(i === 0 || i === n-1 || i === j|| i+j === n-1 || j === 0 || j === n-1){
+                star += '* '
+            }
+            else{
+                star+= '  '
+            }
+        }
+        console.log(star);
+
+    }
+}
+
+print(5)
