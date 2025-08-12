@@ -77,3 +77,8 @@ for (let num of arr) {
 for (let [key, value] of freq) {
   console.log(`${key} => ${value}`);
 }
+
+
+
+let str = "abcde";
+console.log(str.toUpperCase());
