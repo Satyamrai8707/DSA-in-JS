@@ -172,7 +172,7 @@ addScore(40);
 addScore(50);
 addScore(90);
 
-console.log(topScores);
+// console.log(topScores);
 
 //This is an ONLINE algorithm
 
@@ -182,3 +182,220 @@ console.log(topScores);
 //nearly sorted data
 //online algorithms
 //memory constrained elements
+
+//Selection Sort
+let arr6 = [3, 2, 5, 7, 1];
+function SelectionSort(arr6) {
+  for (let i = 0; i < arr6.length - 1; i++) {
+    let min = i;
+    for (let j = i + 1; j < arr6.length; j++) {
+      if (arr6[j] < arr6[min]) {
+        min = j;
+      }
+    }
+    if (min !== i) {
+      [arr6[i], arr6[min]] = [arr6[min], arr6[i]];
+    }
+  }
+  return arr6;
+}
+console.log(SelectionSort(arr6));
+
+// let num = [3, 12, 5, 7, 1];
+// num.sort((a, b) => a - b);
+// let a = num.sort()
+// console.log(typeof a);
+// console.log(num);
+
+//merge sort
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr;
+
+  const mid = Math.floor(arr.length / 2);
+  const left = mergeSort(arr.slice(0, mid));
+  const right = mergeSort(arr.slice(mid));
+
+  return merge(mergeSort(left), mergeSort(right));
+}
+function merge(left, right) {
+  const result = [];
+  let i = 0;
+  let j = 0;
+
+  while (i < left.length && j < right.length) {
+    if (left[i] < right[j]) {
+      result.push(left[i]);
+      i++;
+    } else {
+      result.push(right[j]);
+      j++;
+    }
+  }
+  return result.concat(left.slice(i)).concat(right.slice(j));
+}
+
+let arr7 = [3, 2, 5, 7, 1];
+console.log(mergeSort(arr7));
+
+//quick sort
+function quickSort(array) {
+  if (array.length <= 1) return array;
+  let pivot = array[array.length - 1];
+  let left = [],
+    right = [];
+  for (let i = 0; i < array.length - 1; i++) {
+    if (array[i] < pivot) {
+      left.push(array[i]);
+    } else {
+      right.push(array[i]);
+    }
+  }
+  return [...quickSort(left), pivot, ...quickSort(right)];
+}
+
+const array = [34, 7, 23, 32, 5, 62];
+console.log("Original:", array);
+console.log("Sorted:", quickSort(array));
+
+const products = [
+  {
+    name: "iPhone 14",
+    price: 79900,
+    rating: 4.5,
+    category: "Electronics",
+    inStock: true,
+  },
+  {
+    name: "Samsung TV",
+    price: 45000,
+    rating: 4.2,
+    category: "Electronics",
+    inStock: false,
+  },
+  {
+    name: "Nike Shoes",
+    price: 8999,
+    rating: 4.7,
+    category: "Fashion",
+    inStock: true,
+  },
+  {
+    name: "Adidas T-shirt",
+    price: 2499,
+    rating: 4.0,
+    category: "Fashion",
+    inStock: true,
+  },
+  {
+    name: "MacBook Pro",
+    price: 199900,
+    rating: 4.8,
+    category: "Electronics",
+    inStock: true,
+  },
+];
+
+//sort by stock status -> rating(descending) -> price (ascending)
+
+function sortProducts(products) {
+  return products.sort((a, b) => {
+    if (a.inStock !== b.inStock) {
+      return b.inStock - a.inStock;
+    }
+    if (b.rating !== a.rating) {
+      return b.rating - a.rating;
+    }
+
+    return a.price - b.price;
+  });
+}
+// console.log(sortProducts(products));
+
+const employees = [
+  { department: "HR", name: "Anjali", age: 32 },
+  { department: "Tech", name: "Aman", age: 28 },
+  { department: "HR", name: "Rahul", age: 25 },
+  { department: "Tech", name: "Sneha", age: 24 },
+  { department: "Finance", name: "Kunal", age: 30 },
+  { department: "Tech", name: "Divya", age: 28 },
+];
+// Sort by department -> age (descending)
+
+function sortEmployees(employees) {
+  return employees.sort((a, b) => {
+    if (a.department < b.department) {
+      return -1;
+    }
+    if (a.department > b.department) {
+      return 1;
+    }
+
+    return a.age - b.age;
+  });
+}
+console.log(sortEmployees(employees));
+
+const friends = [
+  { name: "John Doe", lastActive: 1643723400 },
+  { name: "Jane Doe", lastActive: 1643723500 },
+  { name: "Alice", lastActive: 1643723300 },
+  { name: "Bob", lastActive: 1643723600 },
+];
+
+// Sort by last active time (ascending)
+function sortFriends(friends) {
+  return friends.sort((a, b) => a.lastActive - b.lastActive);
+}
+console.log(sortFriends(friends));
+
+let num = [3, 12, 5, 7, 1];
+num.sort((a, b) => a - b); // ascending order
+// num.sort((a, b) => b - a); // descending order
+console.log(num);
+
+let fruits = ["banana", "apple", "cherry", "date"];
+// fruits.sort((a, b) => a.localeCompare(b)); // ascending order
+fruits.sort((a, b) => b.localeCompare(a)); // descending order
+console.log(fruits);
+
+const people = [
+  { name: "Alice", age: 30 },
+  { name: "Bob", age: 25 },
+  { name: "Charlie", age: 35 },
+];
+
+// Sort by age (ascending)
+people.sort((a, b) => a.age - b.age);
+console.log(people);
+
+//sort by name (descending)
+
+people.sort((a, b) => b.name.localeCompare(a.name));
+console.log(people);
+
+//sort people by length of their name (ascending)
+people.sort((a, b) => a.name.length - b.name.length);
+console.log(people);
+
+const students = [
+  { name: "Arjun", grade: "A", marks: 92, attendance: 95, subject: "Math" },
+  { name: "Priya", grade: "A", marks: 88, attendance: 98, subject: "Science" },
+  { name: "Rohit", grade: "B", marks: 78, attendance: 85, subject: "Math" },
+  { name: "Kavya", grade: "A", marks: 92, attendance: 90, subject: "Math" },
+  { name: "Amit", grade: "C", marks: 65, attendance: 80, subject: "Science" },
+];
+
+// Sort by grade (A, B, C) -> marks (descending) -> attendance (descending)
+
+function sortStudents(students) {
+  return students.sort((a, b) => {
+    if (a.grade !== b.grade) {
+      return a.grade.localeCompare(b.grade);
+    }
+    if (b.marks !== a.marks) {
+      return b.marks - a.marks;
+    }
+    return b.attendance - a.attendance;
+  });
+}
+console.log(sortStudents(students));

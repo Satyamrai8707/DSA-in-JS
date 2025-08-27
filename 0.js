@@ -228,3 +228,29 @@ function checkDaySwitch(day){
 
 // let age = prompt("enter your age:")
 // age > 18 ? "eligible":"not eligible"
+
+//find prime number in between 1 to n
+
+let num = 20
+function isPrime(num) {
+    if(num < 2) return false
+    for(let i = 2;i * i <= num; i++) {
+        if(num % i === 0) return false
+    }
+    return true
+}
+let primes = []
+for(let i = 1; i <= num; i++) {
+    if(isPrime(i)) {
+        primes.push(i)
+    }
+
+}
+console.log(`Prime numbers between 1 and ${num}: ${primes.join(', ')}`);
+console.log(primes.length);
+
+// Example usage
+// let num = 20;
+// console.log(`Prime numbers between 1 and ${num}:`);
+
+
